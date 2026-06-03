@@ -207,10 +207,6 @@ The project includes meaningful commits documenting the development process:
 
 Feel free to fork, modify, and improve this project for your needs.
 
-## 📄 License
-
-This project is created for educational purposes.
-
 ---
 
 **Made with ❤️ by Zaki Al Saad**

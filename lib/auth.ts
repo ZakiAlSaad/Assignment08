@@ -11,7 +11,6 @@ export interface Session {
   token?: string;
 }
 
-// Example setup for future BetterAuth integration:
 
 import { betterAuth } from "better-auth";
 import mongoose from "mongoose";
