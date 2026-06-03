@@ -14,6 +14,7 @@ export interface Session {
 
 import { betterAuth } from "better-auth";
 import mongoose from "mongoose";
+import { dash } from "@better-auth/infra";
 
 const mongoUri = process.env.MONGODB_URI || "";
 
@@ -32,6 +33,12 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     },
   },
+  plugins: [
+    dash({
+      apiKey: process.env.BETTER_AUTH_API_KEY || "",
+      baseUrl: process.env.NEXT_PUBLIC_APP_URL || undefined,
+    }),
+  ],
 });
 
 
