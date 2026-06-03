@@ -9,9 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
+    "axios": "^1.17.0",
+    "better-auth": "^1.6.14",
+    "daisyui": "^5.5.20",
+    "mongoose": "^9.6.3",
     "next": "16.2.7",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-toastify": "^11.1.0",
+    "swiper": "^12.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
