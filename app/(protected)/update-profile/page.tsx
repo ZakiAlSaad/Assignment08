@@ -87,19 +87,17 @@ export default function UpdateProfile() {
           </Link>
         </div>
 
-        <h1 className="text-4xl font-bold mb-8">Update Information</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">Update Information</h1>
 
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
+        <div className="bg-white shadow-lg rounded-lg p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
                 <input
                   type="text"
                   placeholder="Your name"
-                  className="input input-bordered"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -107,52 +105,48 @@ export default function UpdateProfile() {
                 />
               </div>
 
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Photo URL</span>
-                </label>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Photo URL</label>
                 <input
                   type="url"
                   placeholder="https://example.com/photo.jpg"
-                  className="input input-bordered"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                   name="image"
                   value={formData.image}
                   onChange={handleChange}
                 />
                 {formData.image && (
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-600 mb-2">Preview:</p>
-                    <div className="avatar">
-                      <div className="w-24 rounded-full">
-                        <img src={formData.image} alt="Preview" />
-                      </div>
+                  <div className="mt-4 flex items-center gap-4">
+                    <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100">
+                      <img src={formData.image} alt="Preview" className="w-full h-full object-cover" />
                     </div>
+                    <p className="text-sm text-gray-600">Preview of your profile photo</p>
                   </div>
                 )}
               </div>
+            </div>
 
-              <div className="card-actions justify-end">
-                <button
-                  type="button"
-                  className="btn btn-ghost"
-                  onClick={() => router.back()}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="btn btn-primary"
-                >
-                  {submitting ? (
-                    <span className="loading loading-spinner loading-sm"></span>
-                  ) : (
-                    "Update Information"
-                  )}
-                </button>
-              </div>
-            </form>
-          </div>
+            <div className="flex justify-end gap-3">
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => router.back()}
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="btn btn-primary"
+              >
+                {submitting ? (
+                  <span className="loading loading-spinner loading-sm"></span>
+                ) : (
+                  "Update Information"
+                )}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
