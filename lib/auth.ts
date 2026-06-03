@@ -1,6 +1,3 @@
-// Authentication configuration
-// This file is ready for BetterAuth + MongoDB integration
-// For now, using custom session-based authentication
 
 export interface User {
   id: string;
@@ -15,7 +12,7 @@ export interface Session {
 }
 
 // Example setup for future BetterAuth integration:
-/*
+
 import { betterAuth } from "better-auth";
 import mongoose from "mongoose";
 
@@ -37,5 +34,5 @@ export const auth = betterAuth({
     },
   },
 });
-*/
+
 
