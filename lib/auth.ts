@@ -12,18 +12,18 @@ export interface Session {
 }
 
 
-import { betterAuth } from "better-auth";
-import mongoose from "mongoose";
+import { betterAuth } from "better-auth/minimal";
 import { dash } from "@better-auth/infra";
+import { memoryAdapter } from "@better-auth/memory-adapter";
+import type { BetterAuthOptions } from "@better-auth/core";
 
-const mongoUri = process.env.MONGODB_URI || "";
+const memoryDB: Record<string, any[]> = {};
 
 export const auth = betterAuth({
-  database: {
-    db: mongoose,
-    table: "users",
-  },
+  database: (options: BetterAuthOptions) => memoryAdapter(memoryDB)(options),
   secret: process.env.BETTER_AUTH_SECRET,
+  baseURL:
+    process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_BETTER_AUTH_URL || process.env.BETTER_AUTH_URL,
   emailAndPassword: {
     enabled: true,
   },
@@ -36,7 +36,6 @@ export const auth = betterAuth({
   plugins: [
     dash({
       apiKey: process.env.BETTER_AUTH_API_KEY || "",
-      baseUrl: process.env.NEXT_PUBLIC_APP_URL || undefined,
     }),
   ],
 });
